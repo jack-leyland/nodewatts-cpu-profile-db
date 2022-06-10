@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
-import fs from "fs"
-import * as pathUtil from "../../lib/path-utils"
-import Node from "../../models/Node"
-import Profile from "../../models/Profile"
+const mongoose = require("mongoose"),
+        fs = require("fs"),
+        pathUtil = require("../../lib/path-utils")
+        Node = require("../../models/Node")
+        Profile = require("../../models/Profile")
 
 //TODO: Dynamic/User given db name in path
 async function connectToLocalDB() {
@@ -10,7 +10,7 @@ async function connectToLocalDB() {
 }
 
 //export function to ingest file
-export function ingestFile(path) {
+function ingestFile(path) {
     if (!pathUtil.directoryExists(path)) {
         throw "Invalid or Non-existent Directory"
     }
@@ -33,3 +33,6 @@ export function ingestFile(path) {
 }
 
 //import parser
+module.exports = {
+    ingestFile
+}

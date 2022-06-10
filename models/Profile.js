@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import { NodeSchema } from "./Node";
+const mongoose = require("mongoose"),
+        NodeSchema = require("./Node");
 
 const ProfileSchema = new mongoose.Schema({
     name: String,
