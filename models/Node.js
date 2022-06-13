@@ -1,12 +1,13 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose"),
+    CallframeSchema = require("./Callframe").CallframeSchema
 
 const NodeSchema = new mongoose.Schema({
-    profilerId: Number,
-    hitCount: Number,
-    callFrame: String,
-    children: [Number]
+    profilerId: {type: Number, required: true},
+    hitCount:{ type: Number, required: true},
+    callFrame: {type: CallframeSchema, required: true},
+    children: {type: [Number], required: true, default: []}
 })
 
-module.exports = {
-    NodeSchema
-}
+const Node = mongoose.model('Node', NodeSchema)
+
+module.exports = {Node, NodeSchema}
