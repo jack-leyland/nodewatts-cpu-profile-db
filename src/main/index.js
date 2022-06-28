@@ -19,7 +19,7 @@ async function ingestFile(path, providedName) {
         throw "Invalid File Extension - Only .cpuprofile files may be ingested"
     }
 
-    connectToLocalDB()
+    await connectToLocalDB()
     .then(console.log("DB connection successful"))
     .catch(err => console.log(err));
 
@@ -56,17 +56,9 @@ async function ingestFile(path, providedName) {
     
     const doc = new Profile(newProfile)
     let doc_id;
-    await doc.save((err, res) => {
-        if (err) {
-            console.log(err)
-            return
-        };
-        doc_id = res._id;
-        console.log("Profile Saved.")
-    })
+    return doc.save();
 }
 
-//import parser
 module.exports = {
     ingestFile
 }
