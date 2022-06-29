@@ -5,7 +5,7 @@ const NodeSchema = new mongoose.Schema({
     profilerId: {type: Number, required: true},
     hitCount:{ type: Number, required: true},
     callFrame: {type: CallframeSchema, required: true},
-    children: {type: [Number], required: true, default: []}
+    children: {type: [Number], required: false, default: []}
 })
 
 const Node = mongoose.model('Node', NodeSchema)
