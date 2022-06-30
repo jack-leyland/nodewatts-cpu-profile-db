@@ -1,13 +1,8 @@
-const mongoose = require("mongoose"),
-        fs = require("fs"),
-        pathUtil = require("../../lib/path-utils"),
-        Node = require("../../models/Node").Node,
-        Profile = require("../../models/Profile");
+const { Profile } = require("./db");
 
-//TODO: Dynamic/User given db name in path
-async function connectToLocalDB() {
-  await mongoose.connect('mongodb://localhost:27017/profiles');
-}
+const fs = require("fs"),
+    pathUtil = require("../../lib/path-utils"),
+    Profile = require("./db").Profile;
 
 //export function to ingest file
 async function ingestFile(path, providedName) {
@@ -18,14 +13,6 @@ async function ingestFile(path, providedName) {
     if (!pathUtil.validExtension(path)) {
         throw "Invalid File Extension - Only .cpuprofile files may be ingested"
     }
-
-    await connectToLocalDB()
-    .then(console.log("DB connection successful"))
-    .catch(err => console.log(err));
-
-    mongoose.connection.on('error', err => {
-        console.log(err);
-    })
     
     /****
     IMPORTANT: 
@@ -54,8 +41,8 @@ async function ingestFile(path, providedName) {
         }
     })
     
-    const doc = new Profile(newProfile)
-    let doc_id;
+    // How to make new document from model using connection object?
+    let doc = new Profile(newProfile);
     return doc.save();
 }
 

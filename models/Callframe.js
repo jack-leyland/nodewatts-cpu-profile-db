@@ -11,4 +11,4 @@ const CallframeSchema = new mongoose.Schema({
 
 const Callframe = mongoose.model('Callframe', CallframeSchema)
 
-module.exports = {Callframe, CallframeSchema};
+module.exports = CallframeSchema;
