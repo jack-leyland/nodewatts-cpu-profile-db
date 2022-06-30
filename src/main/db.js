@@ -13,10 +13,10 @@ mongoose.connection.on('open', err => {
 
 
 // How to handle runtime errors with this connection object?
-const Callframe = conn.model('Callframe', require("../../models/Callframe"));
-const Node = conn.model('Node', require("../../models/Node"));
+// const Callframe = conn.model('Callframe', require("../../models/Callframe"));
+// const Node = conn.model('Node', require("../../models/Node"));
 const Profile = conn.model('Profile', require("../../models/Profile"));
 
 module.exports = {
-    conn, Node, Profile, Callframe
+    conn, Profile
 };
