@@ -1,5 +1,3 @@
-const { Profile } = require("./db");
-
 const fs = require("fs"),
     pathUtil = require("../../lib/path-utils"),
     Profile = require("./db").Profile;
