@@ -1,5 +1,5 @@
 const mongoose = require("mongoose"),
-    CallframeSchema = require("./Callframe").CallframeSchema
+    CallframeSchema = require("./Callframe");
 
 const NodeSchema = new mongoose.Schema({
     profilerId: {type: Number, required: true},

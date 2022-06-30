@@ -1,5 +1,5 @@
 const mongoose = require("mongoose"),
-        NodeSchema = require("./Node").NodeSchema;
+        NodeSchema = require("./Node");
 
 const ProfileSchema = new mongoose.Schema({
     userProvidedName: {type: String, required: true},
