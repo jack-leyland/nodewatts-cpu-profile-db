@@ -13,6 +13,4 @@ const ProfileSchema = new mongoose.Schema({
     timeDeltas: {type: [Number], required: true}
 })
 
-const Profile = mongoose.model('Profile', ProfileSchema)
-
 module.exports = ProfileSchema;

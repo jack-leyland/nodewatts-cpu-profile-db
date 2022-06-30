@@ -8,6 +8,4 @@ const NodeSchema = new mongoose.Schema({
     children: {type: [Number], required: false, default: []}
 })
 
-const Node = mongoose.model('Node', NodeSchema)
-
 module.exports = NodeSchema;

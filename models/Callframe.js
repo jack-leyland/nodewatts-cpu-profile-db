@@ -6,9 +6,7 @@ const CallframeSchema = new mongoose.Schema({
     bailoutReason: {type: String, required: false, default: ''},
     url: {type: String, required: false},
     lineNumber: {type: Number, required: true},
-    columnNumber: {type: Number, required: true},
+    columnNumber: {type: Number, required: true}
 })
-
-const Callframe = mongoose.model('Callframe', CallframeSchema)
 
 module.exports = CallframeSchema;
