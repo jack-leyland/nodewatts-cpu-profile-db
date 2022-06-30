@@ -1,8 +1,4 @@
-const { on } = require("../../models/Callframe");
-const Node = require("../../models/Node"),
-    mongoose = require("mongoose"),
-    Profile = require("../../models/Profile"),
-    Callframe = require("../../models/Callframe");
+const mongoose = require("mongoose");
 
 // Need to add dynamic config for db connection rather than default everytime
 const conn = mongoose.createConnection('mongodb://localhost:27017/profiles')
