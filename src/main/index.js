@@ -39,7 +39,6 @@ async function ingestFile(path, providedName) {
         }
     })
     
-    // How to make new document from model using connection object?
     let doc = new Profile(newProfile);
     return doc.save();
 }
