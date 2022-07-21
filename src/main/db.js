@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 
 // These variables will be available in the nodewatts subprocess shell environment from which the function will be run
 // If the cli version of this package is being used for dev purposes it will use the below defaults.
-const port = 27017
-const dbName = "nodewatts"
+var port = 27017
+var dbName = "nodewatts"
 if (!process.env.NODEWATTS_DB_PORT) {
     port = process.env.NODEWATTS_DB_PORT
 }
