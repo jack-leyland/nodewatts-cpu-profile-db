@@ -3,16 +3,13 @@ const mongoose = require("mongoose");
 
 // These variables will be available in the nodewatts subprocess shell environment from which the function will be run
 // If the cli version of this package is being used for dev purposes it will use the below defaults.
-var port = 27017
-var dbName = "nodewatts"
-if (!process.env.NODEWATTS_DB_PORT) {
-    port = process.env.NODEWATTS_DB_PORT
-}
-if (!process.env.NODEWATTS_DB_NAME) {
-    dbName = process.env.NODEWATTS_DB_NAME
+
+var uri = "mongodb://localhost:27017/nodewatts"
+if (process.env.NODEWATTS_DB_URI) {
+    uri = process.env.NODEWATTS_DB_URI
 }
 
-const conn = mongoose.createConnection('mongodb://localhost:' + port + '/'+ dbName)
+const conn = mongoose.createConnection(uri)
 
 mongoose.connection.on('error', err => {
     console.error("DB CONNECTION ERROR: \n" + err);
